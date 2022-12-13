@@ -1,9 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 * {
   margin: 0;
+}
+
+body {
+  margin: 50px 45px 0 45px;
+ background-color: #464343;
+}
+
+h2, h3{
+  display: inline-block;
 }
 /* body {
   margin: 0;
