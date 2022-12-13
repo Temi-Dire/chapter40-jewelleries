@@ -8,13 +8,14 @@
 }
 
 body {
-  margin: 50px 45px 0 45px;
+  /* margin: 50px 45px 0 45px; */
  background-color: #464343;
 }
 
 h2, h3{
   display: inline-block;
 }
+
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
