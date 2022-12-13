@@ -1,11 +1,12 @@
 import "./App.css";
-import Header from "./Header";
+// import Header from "./Header";
 
 function App() {
   return (
-    <div>
-      <Header />
-    </div>
+    // <div className="bg-black">
+    //   <Header />
+    // </div>
+    <h1 className="text-5xl font-bold underline">Hello world!</h1>
   );
 }
 
