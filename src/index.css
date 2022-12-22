@@ -8,14 +8,21 @@
 }
 
 body {
-  /* margin: 50px 45px 0 45px; */
- background-color: #464343;
+  /* margin:  0px 45px 0 45px; */
+ background-color: #fff;
 }
 
 h2, h3{
   display: inline-block;
 }
 
+.icon__black{
+  color: #000;
+}
+
+.icon__white{
+  color: #fff;
+}
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
