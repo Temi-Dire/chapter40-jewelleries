@@ -9,12 +9,14 @@
 
 body {
   /* margin:  0px 45px 0 45px; */
- background-color: #fff;
+  margin-bottom: 20px;
+ /* background-color: #fff;
+  */
 }
 
-h2, h3{
+/* h2, h3{
   display: inline-block;
-}
+} */
 
 .icon__black{
   color: #000;
@@ -23,6 +25,14 @@ h2, h3{
 .icon__white{
   color: #fff;
 }
+
+.anything{
+  border: 3px solid green;
+}
+
+/* .home__image{
+  background-image: url("https://cdn.shopify.com/s/files/1/0020/2414/5008/files/Creative_-_1_1600x.jpg?v=1669358611");
+} */
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

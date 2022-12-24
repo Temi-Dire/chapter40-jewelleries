@@ -21,12 +21,12 @@ function Header() {
   return (
     <div>
       <div
-        className={`flex justify-between mt-[20px] mx-[45px] text-black ${nav_bar}`}
+        className={`flex justify-between mt-[20px] mx-12 text-black ${nav_bar}`}
       >
         <div className="flex flex-col font-['Aclonica'] text-4xl italic">
           {/* Change the font-style of logo */}
           <span>CHAPTER40 </span>
-          <span>JEWELLERIES</span>
+          <span>JEWELLERY</span>
         </div>
         <div className="sm:hidden">
           <div className="flex items-center h-full justify-between font-['Rubik'] mx-[10px]">
