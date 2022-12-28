@@ -25,10 +25,11 @@ body {
 .icon__white{
   color: #fff;
 }
-
-.anything{
-  border: 3px solid green;
-}
+/* 
+.stick{
+  position: sticky;
+  top: 0;
+} */
 
 /* .home__image{
   background-image: url("https://cdn.shopify.com/s/files/1/0020/2414/5008/files/Creative_-_1_1600x.jpg?v=1669358611");
