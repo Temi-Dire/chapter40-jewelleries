@@ -3,9 +3,14 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
+import { useStateValue } from "../StateProvider";
 // Margin on nav-bar needs to be fixed and style for chapter40
 
 function Header() {
+  //To change the number according to how many items the user adds to basket
+  //eslint-disable-next-line
+  const [{ basket }, dispatch] = useStateValue();
+
   //To change burger class
   const [menu_class, setMenuClass] = useState("hidden");
   const [nav_bar, setNavBar] = useState("");
@@ -52,7 +57,7 @@ function Header() {
           <Link to={"/checkout"}>
             <ShoppingCartIcon className="ml-2" />
           </Link>
-          <span>0</span>
+          <span>{basket?.length}</span>
         </div>
 
         <MenuIcon class="md:hidden w-8 h-8 flex" onClick={updateMenu} />
