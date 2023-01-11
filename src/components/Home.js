@@ -18,27 +18,27 @@ function Home() {
       <div className="flex justify-center mb-12 ">NECKLACES</div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full px-8">
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={4}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={3}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={1}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={1}
         />
       </div>
@@ -49,27 +49,27 @@ function Home() {
       <div className="flex justify-center mt-24 mb-12">EARRINGS</div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full px-8">
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={4}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={3}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={1}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={1}
         />
       </div>
@@ -80,27 +80,27 @@ function Home() {
       <div className="flex justify-center mt-24 mb-12">RINGS</div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full px-8">
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={4}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={3}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={1}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={1}
         />
       </div>
@@ -114,27 +114,27 @@ function Home() {
       <div className="flex justify-center mt-24 mb-12">WATCHES</div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full px-8">
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={4}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={3}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={1}
         />
         <Product
-          image="./Images/cross.jpg"
+          //   image="./Images/cross.jpg"
           desc="Cross-Shaped necklace"
-          price="$10"
+          price={10}
           ratings={1}
         />
       </div>
