@@ -55,7 +55,7 @@ function Home() {
 
       {/* EARRINGS */}
       <div className="flex justify-center mt-24 mb-12">EARRINGS</div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full px-8">
+      <div className="grid  md:grid-cols-4 gap-8 w-full px-8">
         <Product
           //   image="./Images/cross.jpg"
           id={5}
@@ -90,7 +90,7 @@ function Home() {
 
       {/* RINGS */}
       <div className="flex justify-center mt-24 mb-12">RINGS</div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full px-8">
+      <div className="grid  md:grid-cols-4 gap-8 w-full px-8">
         <Product
           //   image="./Images/cross.jpg"
           id={9}
@@ -128,7 +128,7 @@ function Home() {
 
       {/* WRIST-WATCHES */}
       <div className="flex justify-center mt-24 mb-12">WATCHES</div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full px-8">
+      <div className="grid  md:grid-cols-4 gap-8 w-full px-8">
         <Product
           //   image="./Images/cross.jpg"
           id={13}
