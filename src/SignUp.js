@@ -1,18 +1,18 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
+import { auth } from "./firebase";
 
-function Login() {
+function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const login = (e) => {
+  const register = (e) => {
     e.preventDefault();
     // some fancy firebase shit
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         if (userCredential) {
           navigate("/");
@@ -24,20 +24,19 @@ function Login() {
   return (
     <div className="text-primary">
       <div className="h-[100vh] flex justify-center items-center md:w-full">
-        <div className="md:bg-primary md:w-[200px] md:h-[200px] md:mr-24 md:rounded-[100%]"></div>
-        <div className="sm:w-7/10  border border-solid border-primary p-8">
+        <div className="sm:w-7/10 border border-solid border-primary p-8">
           <h1 className="sm:mb-8 sm:border-primary sm:px-8 sm:py-4 sm:bg-primary sm:text-white sm:w-[70%] sm:my-0 sm:mx-auto text-center mb-4">
-            SIGN-IN
+            SIGN-UP
           </h1>
           <form action="" className="md:w-full">
-            <div className="bg-white p-2 rounded-lg text-sm w-full mb-4 border border-solid border-primary">
+            <div className="bg-white p-2 rounded-lg text-sm w-full mb-4  border border-solid border-primary">
               <h5>Email</h5>
               <input
                 className="w-full outline-none text-black placeholder:text-[lightgray]"
                 type="text"
                 placeholder="Email Address"
                 value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="bg-white p-2 w-full rounded-lg text-sm mb-4 border border-solid border-primary">
@@ -47,33 +46,23 @@ function Login() {
                 type="password"
                 placeholder="Password"
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </form>
           <button
             className="bg-inherit w-full p-2 button--sign-in rounded-[50px] border border-solid border-primary hover:bg-primary hover:text-white"
-            onClick={login}
+            onClick={register}
           >
-            Sign In
+            Sign Up
           </button>
-          <p className="text-center text-black mt-4">
-            If you don't have an account please create one now!
+          <p className="text-center mt-4">
+            Enter your email and password to get started.
           </p>
-          <div className="w-full flex justify-center mt-2">
-            <button
-              className="bg-inherit w-fit p-2 border border-solid border-primary hover:bg-primary hover:text-white"
-              onClick={() => {
-                navigate("/signup");
-              }}
-            >
-              Create An Account
-            </button>
-          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Signup;

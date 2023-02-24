@@ -1,7 +1,7 @@
 import React from "react";
 import { useStateValue } from "../StateProvider";
 //eslint-disable-next-line
-function Product({ image, id, desc, price, ratings }) {
+function Product({ id, desc, price }) {
   //eslint-disable-next-line
   const [state, dispatch] = useStateValue();
 
@@ -17,16 +17,17 @@ function Product({ image, id, desc, price, ratings }) {
   }
 
   return (
-    <div className="w-full ">
+    <div className="w-full text-[#264143]">
       {/* <div className="w-[200px] md:w-[250px]"> */}
 
-      <div className="w-full h-[200px] bg-red-500 rounded-t-lg"></div>
+      <div className="w-full h-[200px] bg-red-500 "></div>
+      {/*rounded-t-lg for border*/}
       {/* <img
           src={image}
           alt="Product"
           className="w-full max-w-[250px] h-[200px] md:h-[250px] rounded-t-lg"
         /> */}
-      <div className="border-solid border-2 border-t-0 border-grey rounded-b-lg p-2">
+      <div className="border-solid border-2 border-t-0 border-[#f2ebe9]g p-2">
         <p>{desc}</p>
         <p>{"₦" + price}</p>
         {/* <div className="flex flex-row">
