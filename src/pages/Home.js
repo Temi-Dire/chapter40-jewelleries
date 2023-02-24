@@ -20,7 +20,7 @@ function Home() {
 
       {/* NECKLACES */}
       <div className="flex justify-center mb-12 ">NECKLACES</div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full px-8">
+      <div className="grid md:grid-cols-4 gap-8 w-full px-8">
         <Product
           //   image="./Images/cross.jpg"
           id={1}
