@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../firebase";
 // import { signOut } from "firebase/auth";
 // import { auth } from "../firebase";
 // Margin on nav-bar needs to be fixed and style for chapter40
@@ -11,17 +13,29 @@ import { useStateValue } from "../StateProvider";
 function Header() {
   //To change the number according to how many items the user adds to basket
   //eslint-disable-next-line
-  const [{ basket }, dispatch] = useStateValue();
-
-  // const handleAuthentication = () => {
-  //   if (user) {
-  //     signOut(auth)
-  //       .then(() => {
-  //         console.log("sign out was successful");
-  //       })
-  //       .catch((error) => console.log(error));
-  //   }
-  // };
+  const [{ basket, userName }, dispatch] = useStateValue();
+  const [authUser, setAuthUser] = useState(null);
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+    return () => {
+      listen();
+    };
+  }, []);
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Sign Out was successful");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   //To change burger class
   const [menu_class, setMenuClass] = useState("hidden");
@@ -66,13 +80,18 @@ function Header() {
           </div>
         </div>
         <div className="inline flex items-center sm:hidden">
-          <Link to={"/login"}>
-            <div
-              className="flex flex-col leading-loose"
-              // onClick={handleAuthentication}
-            >
-              <span className="text-[10px]">Hello Guest,</span>
-              <span className="mr-8 text-[13px] font-['Rubik']">SIGN IN</span>
+          <Link to={!authUser && "/login"}>
+            <div className="flex flex-col leading-loose">
+              <span className="mr-8 text-[13px] font-['Rubik']">
+                Hello {authUser ? userName : "Guest"},
+              </span>
+              <span className="mr-8 text-[13px] font-['Rubik']">
+                {authUser ? (
+                  <button onClick={userSignOut}>Sign Out</button>
+                ) : (
+                  "Sign In"
+                )}
+              </span>
             </div>
           </Link>
           <div className="flex flex-col leading-loose ">
