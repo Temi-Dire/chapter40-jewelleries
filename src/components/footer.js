@@ -40,7 +40,7 @@ function Footer() {
       <hr />
       <div
         className={
-          "flex justify-between mx-2 py-2 mx-8 flex items-center text-xs "
+          "flex justify-between mx-2 py-4 mx-8 flex items-center text-xs "
         }
       >
         <Link to={"/earrings"}>
