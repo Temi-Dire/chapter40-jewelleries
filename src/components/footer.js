@@ -36,12 +36,10 @@ function Footer() {
   };
 
   return (
-    <div className="sticky bottom-0 md:hidden bg-white px-2">
+    <div className="sticky bottom-0 md:hidden bg-white ">
       <hr />
       <div
-        className={
-          "flex justify-between mx-2 py-4 mx-8 flex items-center text-xs "
-        }
+        className={"flex justify-between py-4 mx-8 flex items-center text-xs "}
       >
         <Link to={"/earrings"}>
           <span className="flex flex-col items-center">
