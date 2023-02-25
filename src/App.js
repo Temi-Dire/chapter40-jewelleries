@@ -5,7 +5,7 @@ import Earring from "./pages/Earring";
 import Ring from "./pages/Ring";
 import Watch from "./pages/Watch";
 import Login from "./pages/Login";
-import Signup from "./SignUp";
+import Signup from "./pages/SignUp";
 // import { useEffect } from "react";
 // import { useStateValue } from "./StateProvider";
 // import { onAuthStateChanged } from "firebase/auth";
