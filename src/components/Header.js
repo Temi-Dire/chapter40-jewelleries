@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-// import { amber } from "@mui/material/colors";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
-// import { signOut } from "firebase/auth";
-// import { auth } from "../firebase";
-// Margin on nav-bar needs to be fixed and style for chapter40
 
 function Header() {
   //To change the number according to how many items the user adds to basket
   //eslint-disable-next-line
-  const [{ basket, userName }, dispatch] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
   const [authUser, setAuthUser] = useState(null);
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -37,20 +31,6 @@ function Header() {
         console.log(error.message);
       });
   };
-
-  //To change burger class
-  // const [menu_class, setMenuClass] = useState("hidden");
-  // const [nav_bar, setNavBar] = useState("");
-
-  // const updateMenu = () => {
-  //   setMenuClass("block");
-  //   setNavBar("hidden");
-  // };
-
-  // const closeMenu = () => {
-  //   setMenuClass("hidden");
-  //   setNavBar("block");
-  // };
 
   return (
     <div className="sticky top-0 bg-[white]">
@@ -87,7 +67,7 @@ function Header() {
           <Link to={!authUser && "/login"}>
             <div className="flex flex-col leading-loose">
               <span className="mr-8 text-[13px] font-['Rubik']">
-                Hello {authUser ? userName : "Guest"},
+                Hello {authUser ? authUser.email.split("@")[0] : "Guest"},
               </span>
               <span className="mr-8 text-[13px] font-['Rubik']">
                 {authUser ? (
@@ -121,24 +101,6 @@ function Header() {
           </Link>
         </div>
       </div>
-
-      {/* ${menu_class} */}
-      {/* <div className={`relative hidden`}>
-        <div className="w-full h-screen bg-[lightgrey] absolute top-0 z-10  py-6 flex flex-col items-center justify-between">
-          <span>Necklaces</span>
-          <span>Earrings</span>
-          <span>Rings</span>
-          <span>Wrist-watch</span>
-          <span>Sign In</span> */}
-
-      {/* <Link to={"/checkout"} onClick={closeMenu}>
-            <ShoppingCartIcon className="icon__black" />
-          </Link> */}
-      {/* </div> */}
-      {/* onClick={closeMenu} */}
-      {/* <CloseIcon class="absolute w-16 h-16 top- 0 right-0" />
-      </div> */}
-      {/* <hr /> */}
     </div>
   );
 }
