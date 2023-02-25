@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/footer";
 import Header from "../components/Header";
 import Product from "../components/Product";
 import earrings from "../data/earrings";
@@ -12,6 +13,7 @@ function Earring() {
           return <Product desc={item.desc} price={item.price} />;
         })}
       </div>
+      <Footer />
     </div>
   );
 }

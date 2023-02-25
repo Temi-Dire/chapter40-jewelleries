@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/footer";
 import Header from "../components/Header";
 import Product from "../components/Product";
 import necklaces from "../data/necklaces";
@@ -12,6 +13,7 @@ function Necklace() {
           return <Product id={item.id} desc={item.desc} price={item.price} />;
         })}
       </div>
+      <Footer />
     </div>
   );
 }

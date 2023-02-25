@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+// import { amber } from "@mui/material/colors";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -38,22 +39,25 @@ function Header() {
   };
 
   //To change burger class
-  const [menu_class, setMenuClass] = useState("hidden");
-  const [nav_bar, setNavBar] = useState("");
+  // const [menu_class, setMenuClass] = useState("hidden");
+  // const [nav_bar, setNavBar] = useState("");
 
-  const updateMenu = () => {
-    setMenuClass("block");
-    setNavBar("hidden");
-  };
+  // const updateMenu = () => {
+  //   setMenuClass("block");
+  //   setNavBar("hidden");
+  // };
 
-  const closeMenu = () => {
-    setMenuClass("hidden");
-    setNavBar("block");
-  };
+  // const closeMenu = () => {
+  //   setMenuClass("hidden");
+  //   setNavBar("block");
+  // };
 
   return (
     <div className="sticky top-0 bg-[white]">
-      <div className={`flex justify-between mx-4 py-2 md:mx-8 ${nav_bar} `}>
+      {/* ${nav_bar}  */}
+      <div
+        className={`flex justify-between mx-4 py-2 md:mx-8 sm:flex sm:items-center`}
+      >
         <Link to={"/"}>
           <div className="flex flex-col font-['Aclonica'] text-2xl italic  text-primary">
             {/* Change the font-style of logo */}
@@ -104,27 +108,37 @@ function Header() {
           <span>{basket?.length}</span>
         </div>
 
-        <MenuIcon class="md:hidden w-8 h-8 flex" onClick={updateMenu} />
+        {/* onClick={updateMenu} */}
+        <div className="md:hidden">
+          <Link to={"/checkout"}>
+            <div className="flex">
+              <ShoppingCartIcon
+                // sx={{ color: amber[100] }}
+                class="w-8 h-8 flex"
+              />
+              {basket?.length}
+            </div>
+          </Link>
+        </div>
       </div>
 
-      <div className={`relative ${menu_class}`}>
-        <div className="w-full h-screen bg-[lightgrey] absolute top-o right-0 py-6 flex flex-col items-center justify-between">
+      {/* ${menu_class} */}
+      {/* <div className={`relative hidden`}>
+        <div className="w-full h-screen bg-[lightgrey] absolute top-0 z-10  py-6 flex flex-col items-center justify-between">
           <span>Necklaces</span>
           <span>Earrings</span>
           <span>Rings</span>
           <span>Wrist-watch</span>
-          <span>Sign In</span>
+          <span>Sign In</span> */}
 
-          <Link to={"/checkout"} onClick={closeMenu}>
+      {/* <Link to={"/checkout"} onClick={closeMenu}>
             <ShoppingCartIcon className="icon__black" />
-          </Link>
-        </div>
-        <CloseIcon
-          class="absolute w-16 h-16 top- 0 right-0"
-          onClick={closeMenu}
-        />
-      </div>
-      <hr />
+          </Link> */}
+      {/* </div> */}
+      {/* onClick={closeMenu} */}
+      {/* <CloseIcon class="absolute w-16 h-16 top- 0 right-0" />
+      </div> */}
+      {/* <hr /> */}
     </div>
   );
 }

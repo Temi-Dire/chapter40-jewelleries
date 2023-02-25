@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Product from "../components/Product";
+import Footer from "../components/footer";
 // import handImage from "../images/chain.png";
 // import "./login.css"
 
@@ -164,6 +165,8 @@ function Home() {
       </div>
 
       <Hero class={"bg-primary"} desc={"See what our customers are saying"} />
+
+      <Footer />
 
       {/* <div>
         <Hero class={"bg-sky-500"} desc={"SHOP HOME & DECOR"} />

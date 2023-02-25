@@ -2,6 +2,7 @@ import React from "react";
 import watches from "../data/watches";
 import Product from "../components/Product";
 import Header from "../components/Header";
+import Footer from "../components/footer";
 
 function Watch() {
   return (
@@ -12,6 +13,7 @@ function Watch() {
           return <Product desc={item.desc} price={item.price} />;
         })}
       </div>
+      <Footer />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import rings from "../data/rings";
 import Product from "../components/Product";
 import Header from "../components/Header";
+import Footer from "../components/footer";
 
 function Ring() {
   return (
@@ -12,6 +13,7 @@ function Ring() {
           return <Product desc={item.desc} price={item.price} />;
         })}
       </div>
+      <Footer />
     </div>
   );
 }
