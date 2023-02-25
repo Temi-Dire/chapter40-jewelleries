@@ -1,7 +1,7 @@
 import React from "react";
 import { useStateValue } from "../StateProvider";
 import CheckoutProduct from "../components/CheckoutProduct";
-// import Subtotal from "../components/Subtotal";
+import Subtotal from "../components/Subtotal";
 import Header from "../components/Header";
 
 function Checkout() {
@@ -25,9 +25,9 @@ function Checkout() {
             );
           })}
         </div>
-        {/* <div className="checkout__right">
+        <div className="checkout__right">
           <Subtotal />
-        </div> */}
+        </div>
       </div>
     </div>
   );
