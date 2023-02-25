@@ -29,7 +29,7 @@ function Login() {
           <h1 className="sm:mb-8 sm:border-primary sm:px-8 sm:py-4 sm:bg-primary sm:text-white sm:w-[70%] sm:my-0 sm:mx-auto text-center mb-4">
             SIGN-IN
           </h1>
-          <form action="" className="md:w-full">
+          <form action="" className="md:w-full" onSubmit={login}>
             <div className="bg-white p-2 rounded-lg text-sm w-full mb-4 border border-solid border-primary">
               <h5>Email</h5>
               <input
@@ -50,13 +50,13 @@ function Login() {
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
+            <button
+              className="bg-inherit w-full p-2 button--sign-in rounded-[50px] border border-solid border-primary hover:bg-primary hover:text-white"
+              type="submit"
+            >
+              Sign In
+            </button>
           </form>
-          <button
-            className="bg-inherit w-full p-2 button--sign-in rounded-[50px] border border-solid border-primary hover:bg-primary hover:text-white"
-            onClick={login}
-          >
-            Sign In
-          </button>
           <p className="text-center text-black mt-4">
             If you don't have an account please create one now!
           </p>
