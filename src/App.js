@@ -12,6 +12,7 @@ import Signup from "./pages/SignUp";
 // import { auth } from "./firebase";
 //eslint-disable-next-line
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Payment from "./pages/Payment";
 
 //USE-EFFECT IS CAUSING A PROBLEM !!!!!
 
@@ -48,6 +49,7 @@ function App() {
           <Route exact path="/watches" element={<Watch />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/payment" element={<Payment />} />
         </Routes>
       </div>
     </Router>
