@@ -6,37 +6,37 @@ import Ring from "./pages/Ring";
 import Watch from "./pages/Watch";
 import Login from "./pages/Login";
 import Signup from "./pages/SignUp";
-// import { useEffect } from "react";
-// import { useStateValue } from "./StateProvider";
-// import { onAuthStateChanged } from "firebase/auth";
-// import { auth } from "./firebase";
-//eslint-disable-next-line
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Payment from "./pages/Payment";
+import { auth } from "./firebase";
+import { useEffect } from "react";
+import { useStateValue } from "./StateProvider";
+import { onAuthStateChanged } from "firebase/auth";
 
 //USE-EFFECT IS CAUSING A PROBLEM !!!!!
 
 function App() {
   //eslint-disable-next-line
-  // const [{}, dispatch] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
 
-  // useEffect(() => {
-  //will only run once when the app component loads...
-  //The use effect is like an if statement
-  //   onAuthStateChanged(auth, (authUser) => {
-  //     if (authUser) {
-  //       dispatch({
-  //         type: "SET_USER",
-  //         user: authUser,
-  //       });
-  //     } else {
-  //       dispatch({
-  //         type: "SET_USER",
-  //         user: null,
-  //       });
-  //     }
-  //   });
-  // });
+  // will only run once when the app component loads...
+  // The use effect is like an if statement
+  useEffect(() => {
+    onAuthStateChanged(auth, (authUser) => {
+      if (authUser) {
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        });
+      } else {
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        });
+      }
+    });
+    //eslint-disable-next-line
+  }, []);
   return (
     <Router>
       <div>

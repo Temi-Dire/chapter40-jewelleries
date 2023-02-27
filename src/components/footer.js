@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChain,
@@ -7,32 +7,24 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
+import { useStateValue } from "../StateProvider";
 
 function Footer() {
   //eslint-disable-next-line
-  const [authUser, setAuthUser] = useState(null);
-  useEffect(() => {
-    const listen = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthUser(user);
-      } else {
-        setAuthUser(null);
-      }
-    });
-    return () => {
-      listen();
-    };
-  }, []);
-  const userSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("Sign Out was successful");
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+  const [{ user }, dispatch] = useStateValue();
+
+  const handleAuthentication = () => {
+    if (user) {
+      signOut(auth)
+        .then(() => {
+          console.log("Sign Out was successful");
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }
   };
 
   return (
@@ -65,16 +57,13 @@ function Footer() {
             <p>Necklace</p>
           </span>
         </Link>
-        <Link to={!authUser && "/login"}>
-          <span className="flex flex-col items-center">
+        <Link to={!user && "/login"}>
+          <span
+            className="flex flex-col items-center"
+            onClick={handleAuthentication}
+          >
             <FontAwesomeIcon icon={faUser} />
-            <span>
-              {authUser ? (
-                <button onClick={userSignOut}>Sign Out</button>
-              ) : (
-                "Sign In"
-              )}
-            </span>
+            <span>{user ? "Sign In" : "Sign Out"}</span>
           </span>
         </Link>
       </div>

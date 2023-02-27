@@ -1,6 +1,6 @@
 export const initialState = {
   basket: [],
-  userName: null,
+  user: null,
 };
 
 const reducer = (state, action) => {
@@ -27,7 +27,7 @@ const reducer = (state, action) => {
     case "SET_USER":
       return {
         ...state,
-        userName: action.userName,
+        user: action.user,
       };
 
     default:

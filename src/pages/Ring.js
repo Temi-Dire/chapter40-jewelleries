@@ -2,7 +2,7 @@ import React from "react";
 import rings from "../data/rings";
 import Product from "../components/Product";
 import Header from "../components/Header";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 function Ring() {
   return (

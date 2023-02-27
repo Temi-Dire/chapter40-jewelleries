@@ -1,41 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 // import { deepOrange } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
-import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 
 function Header() {
-  //To change the number according to how many items the user adds to basket
   //eslint-disable-next-line
-  const [{ basket }, dispatch] = useStateValue();
-  const [authUser, setAuthUser] = useState(null);
-  useEffect(() => {
-    const listen = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthUser(user);
-      } else {
-        setAuthUser(null);
-      }
-    });
-    return () => {
-      listen();
-    };
-  }, []);
-  const userSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("Sign Out was successful");
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+  const [{ basket, user }, dispatch] = useStateValue();
+  const handleAuthentication = () => {
+    if (user) {
+      signOut(auth)
+        .then(() => {
+          console.log("Sign Out was successful");
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }
   };
 
   return (
     <div className="sticky top-0 bg-white">
-      {/* ${nav_bar}  */}
       <div
         className={`flex justify-between mx-4 py-2 md:mx-8 sm:flex sm:items-center`}
       >
@@ -63,17 +50,16 @@ function Header() {
           </div>
         </div>
         <div className="inline flex items-center sm:hidden">
-          <Link to={!authUser && "/login"}>
-            <div className="flex flex-col leading-loose ">
+          <Link to={!user && "/login"}>
+            <div
+              className="flex flex-col leading-loose "
+              onClick={handleAuthentication}
+            >
               <span className="mr-8 text-[13px] font-['Rubik']">
-                Hello {authUser ? authUser.email.split("@")[0] : "Guest"},
+                Hello {user ? user.email.split("@")[0] : "Guest"},
               </span>
               <span className="mr-8 text-[13px] font-['Rubik']">
-                {authUser ? (
-                  <button onClick={userSignOut}>Sign Out</button>
-                ) : (
-                  "Sign In"
-                )}
+                {user ? "Sign Out" : "Sign In"}
               </span>
             </div>
           </Link>
@@ -90,7 +76,6 @@ function Header() {
           <span>{basket?.length}</span>
         </div>
 
-        {/* onClick={updateMenu} */}
         <div className="md:hidden">
           <Link to={"/checkout"}>
             <div className="flex">
