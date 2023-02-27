@@ -2,13 +2,15 @@ import React from "react";
 import Header from "../components/Header";
 import CheckoutProduct from "../components/CheckoutProduct";
 import { useStateValue } from "../StateProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PaystackPop from "@paystack/inline-js";
+import { db } from "../firebase";
 // import { PaystackButton } from "react-paystack";
 
 function Payment() {
   //eslint-disable-next-line
   const [{ basket, user }, dispatch] = useStateValue();
+  const navigate = useNavigate();
   const getTotal = () => {
     let sum = 0;
     for (let i = 0; i < basket.length; i++) {
@@ -25,10 +27,14 @@ function Payment() {
       email: user.email,
       amount: getTotal() * 100,
     });
-    // dispatch({
-    //   type: "EMPTY_BASKET",
-
-    // })
+    dispatch({
+      type: "EMPTY_BASKET",
+    });
+    navigate("/orders");
+    db.collection("users")
+      .doc(user?.uid)
+      .collection("orders")
+      .set({ basket: basket, amount: getTotal() });
   };
 
   return (

@@ -12,6 +12,7 @@ import { auth } from "./firebase";
 import { useEffect } from "react";
 import { useStateValue } from "./StateProvider";
 import { onAuthStateChanged } from "firebase/auth";
+import Orders from "./pages/Orders";
 
 //USE-EFFECT IS CAUSING A PROBLEM !!!!!
 
@@ -50,6 +51,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/payment" element={<Payment />} />
+          <Route exact path="/orders" element={<Orders />} />
         </Routes>
       </div>
     </Router>
