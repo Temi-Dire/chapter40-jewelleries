@@ -10,7 +10,7 @@ function Earring() {
       <Header />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-8">
         {earrings.map((item) => {
-          return <Product desc={item.desc} price={item.price} />;
+          return <Product id={item.id} desc={item.desc} price={item.price} />;
         })}
       </div>
       <Footer />

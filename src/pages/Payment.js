@@ -5,11 +5,41 @@ import { useStateValue } from "../StateProvider";
 import { Link, useNavigate } from "react-router-dom";
 import PaystackPop from "@paystack/inline-js";
 import { db } from "../firebase";
+//eslint-disable-next-line
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 // import { PaystackButton } from "react-paystack";
 
 function Payment() {
   //eslint-disable-next-line
   const [{ basket, user }, dispatch] = useStateValue();
+
+  async function addToFireStore2() {
+    try {
+      const documentRef = doc(db, "user", user.uid);
+      const ordersRef = collection(documentRef, "orders");
+      await addDoc(ordersRef, { basket: basket, amount: getTotal() });
+      alert("Document created successfully!");
+    } catch (e) {
+      console.error("Error creating document:", e);
+      alert(
+        "An error occurred while creating the document. Please try again later."
+      );
+    }
+  }
+
+  // async function addToFireStore2(e) {
+  //   e.preventDefault();
+  //   try {
+  //     const docRef = await addDoc(collection(db, "orders"), {
+  //       basket: basket,
+  //       amount: getTotal(),
+  //     });
+  //     console.log("Document written with ID: ", docRef.id);
+  //   } catch (err) {
+  //     console.error("Error adding document: ", err);
+  //   }
+  // }
+
   const navigate = useNavigate();
   const getTotal = () => {
     let sum = 0;
@@ -19,8 +49,7 @@ function Payment() {
     return sum;
   };
 
-  const payWithPaystack = (e) => {
-    e.preventDefault();
+  const payWithPaystack = () => {
     const paystack = new PaystackPop();
     paystack.newTransaction({
       key: "pk_test_bbaa5b02968054dc8332e5c2fc4b566c84d08f4e",
@@ -30,11 +59,7 @@ function Payment() {
     dispatch({
       type: "EMPTY_BASKET",
     });
-    navigate("/orders");
-    db.collection("users")
-      .doc(user?.uid)
-      .collection("orders")
-      .set({ basket: basket, amount: getTotal() });
+    // navigate("/orders")
   };
 
   return (
@@ -77,6 +102,12 @@ function Payment() {
               onClick={payWithPaystack}
             >
               PAY
+            </button>
+            <button
+              className="bg-red-100 rounded-xl p-1 w-full mt-2"
+              onClick={addToFireStore2}
+            >
+              ADD TO FIRESTORE2
             </button>
           </div>
         </div>

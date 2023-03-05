@@ -22,7 +22,6 @@ function Signup() {
 
   const register = (e) => {
     e.preventDefault();
-    // some fancy firebase shit
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         if (userCredential) {
