@@ -22,7 +22,7 @@ function Header() {
   };
 
   return (
-    <div className="sticky top-0 bg-white">
+    <div className="sticky top-0 bg-white z-10">
       <div
         className={`flex justify-between mx-4 py-2 md:mx-8 sm:flex sm:items-center`}
       >
@@ -63,10 +63,12 @@ function Header() {
               </span>
             </div>
           </Link>
-          <div className="flex flex-col leading-loose ">
-            <span className="text-[10px]">Returns</span>
-            <span className="mr-8 text-[13px] font-['Rubik']">& Orders</span>
-          </div>
+          <Link to={"/orders"}>
+            <div className="flex flex-col leading-loose ">
+              <span className="text-[10px]">Returns</span>
+              <span className="mr-8 text-[13px] font-['Rubik']">& Orders</span>
+            </div>
+          </Link>
           <Link to={"/checkout"}>
             <ShoppingCartIcon
               // sx={{ color: deepOrange[500] }}
