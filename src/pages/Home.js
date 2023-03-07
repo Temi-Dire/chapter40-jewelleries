@@ -8,8 +8,10 @@ import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <div className="bg-white text-[#264143]">
-      <Header />
+    <div className="text-[#264143]">
+      <div>
+        <Header className="sticky top-0" />
+      </div>
       <div>
         <Hero class={"bg-primary"} desc={"WELCOME TO CHAPTER40 JEWELLERY"} />
       </div>
@@ -56,7 +58,7 @@ function Home() {
 
       {/* EARRINGS */}
       <div className="flex justify-center mt-24 mb-12">EARRINGS</div>
-      <div className="grid  md:grid-cols-4 gap-8 w-full px-8">
+      <div className="grid  md:grid-cols-4 gap-8 w-full px-8 auto-rows-fr">
         <Product
           //   image="./Images/cross.jpg"
           id={5}

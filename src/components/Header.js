@@ -22,7 +22,7 @@ function Header() {
   };
 
   return (
-    <div className="sticky top-0 bg-white z-10">
+    <nav className="bg-[#dea9de] z-10 text-white ">
       <div
         className={`flex justify-between mx-4 py-2 md:mx-8 sm:flex sm:items-center`}
       >
@@ -36,23 +36,31 @@ function Header() {
         <div className="sm:hidden">
           <div className="flex items-center h-full justify-between font-['Rubik'] mx-[10px] ">
             <Link to="/necklaces">
-              <span className="mr-8 hover:text-primary ">Necklaces</span>
+              <span className="mr-8  block lg:inline-block  hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                Necklaces
+              </span>
             </Link>
             <Link to="/earrings">
-              <span className="mr-8 ">Earrings</span>
+              <span className="mr-8 block lg:inline-block  hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                Earrings
+              </span>
             </Link>
             <Link to="/rings">
-              <span className="mr-8 ">Rings</span>
+              <span className="mr-8 block lg:inline-block  hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                Rings
+              </span>
             </Link>
             <Link to="/watches">
-              <span className="">Watches</span>
+              <span className="block lg:inline-block hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                Watches
+              </span>
             </Link>
           </div>
         </div>
         <div className="inline flex items-center sm:hidden">
           <Link to={!user && "/login"}>
             <div
-              className="flex flex-col leading-loose "
+              className="flex flex-col leading-loose hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
               onClick={handleAuthentication}
             >
               <span className="mr-8 text-[13px] font-['Rubik']">
@@ -64,33 +72,35 @@ function Header() {
             </div>
           </Link>
           <Link to={"/orders"}>
-            <div className="flex flex-col leading-loose ">
+            <div className="flex flex-col leading-loose hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
               <span className="text-[10px]">Returns</span>
               <span className="mr-8 text-[13px] font-['Rubik']">& Orders</span>
             </div>
           </Link>
           <Link to={"/checkout"}>
-            <ShoppingCartIcon
-              // sx={{ color: deepOrange[500] }}
-              className="ml-2"
-            />
+            <div className="hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+              <ShoppingCartIcon
+                // sx={{ color: deepOrange[500] }}
+                className="ml-2"
+              />
+              <span>{basket?.length}</span>
+            </div>
           </Link>
-          <span>{basket?.length}</span>
         </div>
 
         <div className="md:hidden">
           <Link to={"/checkout"}>
-            <div className="flex">
+            <div className="hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
               <ShoppingCartIcon
                 // sx={{ color: deepOrange[500] }}
-                class="w-8 h-8 flex"
+                className="ml-2"
               />
-              {basket?.length}
+              <span>{basket?.length}</span>
             </div>
           </Link>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 
