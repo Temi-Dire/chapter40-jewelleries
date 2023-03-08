@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { useStateValue } from "./StateProvider";
 import { onAuthStateChanged } from "firebase/auth";
 import Orders from "./pages/Orders";
+import Popup from "./components/Popup";
+import Oopss from "./pages/Oopss";
 
 //USE-EFFECT IS CAUSING A PROBLEM !!!!!
 
@@ -52,6 +54,8 @@ function App() {
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/payment" element={<Payment />} />
           <Route exact path="/orders" element={<Orders />} />
+          <Route exact path="/modal" element={<Popup />} />
+          <Route exact path="/oopss" element={<Oopss />} />
         </Routes>
       </div>
     </Router>

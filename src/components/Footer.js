@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChain,
@@ -10,16 +10,19 @@ import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { useStateValue } from "../StateProvider";
+import Popup from "./Popup";
 
 function Footer() {
   //eslint-disable-next-line
   const [{ user }, dispatch] = useStateValue();
+  const [signoutsuccessful, setSignOutSuccessful] = useState(false);
 
   const handleAuthentication = () => {
     if (user) {
       signOut(auth)
         .then(() => {
           console.log("Sign Out was successful");
+          setSignOutSuccessful(true);
         })
         .catch((error) => {
           console.log(error.message);
@@ -63,10 +66,18 @@ function Footer() {
             onClick={handleAuthentication}
           >
             <FontAwesomeIcon icon={faUser} />
-            <span>{user ? "Sign In" : "Sign Out"}</span>
+            <span>{user ? "Sign Out" : "Sign In"}</span>
           </span>
         </Link>
       </div>
+      {signoutsuccessful && (
+        <Popup
+          click={() => setSignOutSuccessful(false)}
+          msg={"THANK YOU!"}
+          desc={"You have successfully signed out"}
+          btn={"OK"}
+        />
+      )}
     </div>
   );
 }
