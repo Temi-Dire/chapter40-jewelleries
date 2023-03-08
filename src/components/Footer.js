@@ -28,7 +28,7 @@ function Footer() {
   };
 
   return (
-    <div className="sticky bottom-0 w-full md:hidden bg-white ">
+    <div className=" w-full md:hidden bg-white ">
       <hr />
       <div
         className={"flex justify-between py-4 mx-8 flex items-center text-xs "}
