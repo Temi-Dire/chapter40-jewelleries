@@ -10,13 +10,20 @@ function PageHeader() {
   return (
     <div className="bg-[#dea9de] z-10 text-white flex justify-between px-4 py-4 ">
       <Link to={"/"}>
-        <FontAwesomeIcon
-          className="hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-          icon={faArrowLeftLong}
-        />
+        <div className="flex items-center">
+          <FontAwesomeIcon
+            className="hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+            icon={faArrowLeftLong}
+          />
+          <span className="flex flex-col font-['Aclonica'] text-2xl italic  ml-4">
+            {/* Change the font-style of logo */}
+            <span>CHAPTER40 </span>
+            <span>JEWELLERY</span>
+          </span>
+        </div>
       </Link>
 
-      <div className="md:hidden">
+      <div className="md:hidden flex items-center">
         <Link to={"/checkout"}>
           <div className="hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
             <ShoppingCartIcon

@@ -168,7 +168,7 @@ function Home() {
 
       {/* <Hero class={"bg-primary"} desc={"See what our customers are saying"} /> */}
 
-      <div className="sticky bottom-0">
+      <div className="fixed bottom-0 w-full">
         <Footer />
       </div>
 
