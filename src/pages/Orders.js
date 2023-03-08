@@ -1,15 +1,19 @@
 import { collection, doc, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import Oops from "../components/Oops";
 import Order from "../components/Order";
 import { db } from "../firebase";
 import { useStateValue } from "../StateProvider";
 
 function Orders() {
   const [{ user }, dispatch] = useStateValue();
-  const [movieList, setMovieList] = useState([]);
+  const navigate = useNavigate();
+  const [orderList, setOrderList] = useState([]);
   const documentRef = doc(db, "user", user.uid);
   const ordersCollectionRef = collection(documentRef, "orders");
+
   useEffect(() => {
     const getMovieList = async () => {
       try {
@@ -18,7 +22,7 @@ function Orders() {
           ...doc.data(),
           id: doc.id,
         }));
-        setMovieList(filteredData);
+        setOrderList(filteredData);
         console.log(filteredData);
       } catch (err) {
         console.error(err);
@@ -32,14 +36,14 @@ function Orders() {
   return (
     <div>
       <Header />
-      {user ? (
+      {orderList !== 0 ? (
         <div>
           <h1>YOUR ORDERS</h1>
           <div>
-            {movieList.map((movie) => (
+            {orderList.map((order) => (
               <div>
                 <p>
-                  {movie.basket.map((item) => (
+                  {order.basket.map((item) => (
                     <Order id={item.id} desc={item.desc} price={item.price} />
                   ))}
                 </p>
@@ -48,7 +52,12 @@ function Orders() {
           </div>
         </div>
       ) : (
-        <div>PLEASE SIGN IN OR CREATE AN ACCOUNT FIRST</div>
+        <Oops
+          msg={"OOPS"}
+          desc={"Looks like you've not yet made an order"}
+          btn={"ORDER NOW"}
+          click={() => navigate("/")}
+        />
       )}
     </div>
   );
@@ -63,7 +72,7 @@ export default Orders;
 // import { useStateValue } from "../StateProvider";
 
 // function Orders() {
-//   const [movieList, setMovieList] = useState([]);
+//   const [orderList, setOrderList] = useState([]);
 //   const ordersCollectionRef = collection(db, "orders");
 //   useEffect(() => {
 //     const getMovieList = async () => {
@@ -73,7 +82,7 @@ export default Orders;
 //           ...doc.data(),
 //           id: doc.id,
 //         }));
-//         setMovieList(filteredData);
+//         setOrderList(filteredData);
 //         console.log(filteredData);
 //       } catch (err) {
 //         alert(err);
@@ -86,7 +95,7 @@ export default Orders;
 //     <div>
 //       <Header />
 //       <div>
-//         {movieList.map((movie) => (
+//         {orderList.map((movie) => (
 //           <div>
 //             <p>{movie.amount}</p>
 //             <p>{movie.basket[0].desc}</p>

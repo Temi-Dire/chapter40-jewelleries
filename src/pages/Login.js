@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 
 function Login() {
@@ -24,53 +24,46 @@ function Login() {
   };
 
   return (
-    <div className="text-primary">
-      <div className="h-[100vh] flex justify-center items-center md:w-full">
-        <div className="md:bg-primary md:w-[200px] md:h-[200px] md:mr-24 md:rounded-[100%]"></div>
-        <div className="sm:w-7/10  border border-solid border-primary p-8">
-          <h1 className="sm:mb-8 sm:border-primary sm:px-8 sm:py-4 sm:bg-primary sm:text-white sm:w-[70%] sm:my-0 sm:mx-auto text-center mb-4">
-            SIGN-IN
+    <div>
+      <div className="h-screen sm:flex sm:justify-center sm:items-center md:grid md:grid-cols-2 md:items-center md:justify-items-center">
+        <div className="sm:hidden h-screen w-full bg-white"></div>
+        <div className="md:w-7/10 p-8">
+          <h1 className="sm:mb-8 text-3xl sm:font-bold font-extrabold sm:w-[70%] sm:my-0text-center mb-4">
+            Welcome
           </h1>
-          <form action="" className="md:w-full" onSubmit={login}>
-            <div className="bg-white p-2 rounded-lg text-sm w-full mb-4 border border-solid border-primary">
-              <h5>Email</h5>
-              <input
-                className="w-full outline-none text-black placeholder:text-[lightgray]"
-                type="text"
-                placeholder="Email Address"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
+          <h1 className="sm:mb-8 sm:text-xl sm:font-bold  mb-4">
+            Please login to your account
+          </h1>
+          <form action="" onSubmit={login}>
+            <input
+              className="w-full h-16 rounded-lg bg-[##FAFAFA] outline-none py-5 px-4 border border-[#E3E0E0] mb-10"
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <input
+              className="w-full h-16 rounded-lg bg-[##FAFAFA] outline-none py-5 px-4 border border-[#E3E0E0] mb-10"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="flex justify-center">
+              <button
+                className="bg-white w-3/5 p-2 rounded-[50px]  hover:bg-black hover:text-white"
+                type="submit"
+              >
+                Login
+              </button>
             </div>
-            <div className="bg-white p-2 w-full rounded-lg text-sm mb-4 border border-solid border-primary">
-              <h5>Password</h5>
-              <input
-                className="w-full outline-none text-black placeholder:text-[lightgray]"
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </div>
-            <button
-              className="bg-inherit w-full p-2 button--sign-in rounded-[50px] border border-solid border-primary hover:bg-primary hover:text-white"
-              type="submit"
-            >
-              Sign In
-            </button>
           </form>
-          <p className="text-center text-black mt-4">
-            If you don't have an account please create one now!
-          </p>
-          <div className="w-full flex justify-center mt-2">
-            <button
-              className="bg-inherit w-fit p-2 border border-solid border-primary hover:bg-primary hover:text-white"
-              onClick={() => {
-                navigate("/signup");
-              }}
-            >
-              Create An Account
-            </button>
+          <div className="text-center mt-4 ">
+            <span>Don't have an account?</span>
+            <Link to={"/signup"}>
+              <span className="ml-4 font-bold">Create One</span>
+            </Link>
           </div>
         </div>
       </div>
