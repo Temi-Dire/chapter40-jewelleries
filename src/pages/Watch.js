@@ -18,9 +18,9 @@ function Watch() {
         <p>VIEW OUR WATCH COLLECTION</p>
       </div>
       {/* <Header /> */}
-      <div className="grid md:grid-cols-4 gap-8 p-8">
+      <div className="grid sm:mb-16 md:grid-cols-4 gap-8 p-8">
         {watches.map((item) => {
-          return <Product desc={item.desc} price={item.price} />;
+          return <Product id={item.id} desc={item.desc} price={item.price} />;
         })}
       </div>
       <div className="fixed bottom-0 w-full">

@@ -1,22 +1,11 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
-import { useStateValue } from "../StateProvider";
 
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUserName] = useState("");
-  //eslint-disable-next-line
-  const [state, dispatch] = useStateValue();
-
-  const updateUserName = () => {
-    dispatch({
-      type: "SET_USER",
-      userName: username,
-    });
-  };
 
   const navigate = useNavigate();
 
@@ -32,54 +21,47 @@ function Signup() {
   };
 
   return (
-    <div className="text-primary">
-      <div className="h-[100vh] flex justify-center items-center md:w-full">
-        <div className="sm:w-7/10 border border-solid border-primary p-8">
-          <h1 className="sm:mb-8 sm:border-primary sm:px-8 sm:py-4 sm:bg-primary sm:text-white sm:w-[70%] sm:my-0 sm:mx-auto text-center mb-4">
-            SIGN-UP
+    <div>
+      <div className="h-screen sm:flex sm:justify-center sm:items-center md:grid md:grid-cols-2 md:items-center md:justify-items-center">
+        <div className="sm:hidden h-screen w-full bg-white"></div>
+        <div className="md:w-7/10 p-8">
+          <h1 className="sm:mb-8 text-3xl sm:font-bold font-extrabold sm:w-[70%] sm:my-0text-center mb-4">
+            Welcome
           </h1>
-          <form action="" className="md:w-full" onSubmit={register}>
-            <div className="bg-white p-2 rounded-lg text-sm w-full mb-4  border border-solid border-primary">
-              <h5>User Name</h5>
-              <input
-                className="w-full outline-none text-black placeholder:text-[lightgray]"
-                type="text"
-                placeholder="Please enter a user name"
-                value={username}
-                onChange={(e) => setUserName(e.target.value)}
-              />
+          <h1 className="sm:mb-8 sm:text-xl sm:font-bold  mb-4">
+            Create your account today!
+          </h1>
+          <form action="" onSubmit={register}>
+            <input
+              className="w-full h-16 rounded-lg bg-[##FAFAFA] outline-none py-5 px-4 border border-[#E3E0E0] mb-10"
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <input
+              className="w-full h-16 rounded-lg bg-[##FAFAFA] outline-none py-5 px-4 border border-[#E3E0E0] mb-10"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="flex justify-center">
+              <button
+                className="bg-white w-3/5 p-2 rounded-[50px]  hover:bg-black hover:text-white"
+                type="submit"
+              >
+                Create Account
+              </button>
             </div>
-            <div className="bg-white p-2 rounded-lg text-sm w-full mb-4  border border-solid border-primary">
-              <h5>Email</h5>
-              <input
-                className="w-full outline-none text-black placeholder:text-[lightgray]"
-                type="text"
-                placeholder="Email Address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="bg-white p-2 w-full rounded-lg text-sm mb-4 border border-solid border-primary">
-              <h5>Password</h5>
-              <input
-                className="w-full outline-none text-black placeholder:text-[lightgray]"
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button
-              className="bg-inherit w-full p-2 button--sign-in rounded-[50px] border border-solid border-primary hover:bg-primary hover:text-white"
-              type="submit"
-              onClick={updateUserName}
-            >
-              Sign Up
-            </button>
           </form>
-          <p className="text-center mt-4">
-            Enter your email and password to get started.
-          </p>
+          <div className="text-center mt-4 ">
+            <span>Already have an Account?</span>
+            <Link to={"/login"}>
+              <span className="ml-4 font-bold">Sign In</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

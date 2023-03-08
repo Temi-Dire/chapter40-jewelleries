@@ -17,9 +17,9 @@ function Ring() {
       <div className="w-full bg-[purple] h-[250px]  my-8 flex items-center justify-center text-white text-2xl sm:text-lg font-['Aclonica']">
         <p>VIEW OUR RING COLLECTION</p>
       </div>
-      <div className="grid md:grid-cols-4 gap-8 p-8">
+      <div className="grid sm:mb-16 md:grid-cols-4 gap-8 p-8">
         {rings.map((item) => {
-          return <Product desc={item.desc} price={item.price} />;
+          return <Product id={item.id} desc={item.desc} price={item.price} />;
         })}
       </div>
       <div className="fixed bottom-0 w-full">
