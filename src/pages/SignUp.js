@@ -49,7 +49,7 @@ function Signup() {
             />
             <div className="flex justify-center">
               <button
-                className="bg-white w-3/5 p-2 rounded-[50px]  hover:bg-black hover:text-white"
+                className="bg-white border border-black w-3/5 p-2 rounded-[50px]  hover:bg-black hover:text-white"
                 type="submit"
               >
                 Create Account

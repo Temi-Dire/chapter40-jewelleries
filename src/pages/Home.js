@@ -8,10 +8,11 @@ import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <div className="text-[#264143]">
-      <div>
+    <div>
+      <div className="sticky top-0 z-10">
         <Header className="sticky top-0" />
       </div>
+
       <div>
         <Hero class={"bg-primary"} desc={"WELCOME TO CHAPTER40 JEWELLERY"} />
       </div>
@@ -20,7 +21,6 @@ function Home() {
           VIEW OUR COLLECTIONS
         </div>
       </div>
-
       {/* NECKLACES */}
       <div className="flex justify-center mb-12 ">NECKLACES</div>
       <div className="grid md:grid-cols-4 gap-8 w-full px-8">
@@ -53,9 +53,7 @@ function Home() {
           ratings={1}
         />
       </div>
-
       <Hero class={"bg-primary"} desc={"We sell only quality products"} />
-
       {/* EARRINGS */}
       <div className="flex justify-center mt-24 mb-12">EARRINGS</div>
       <div className="grid  md:grid-cols-4 gap-8 w-full px-8 auto-rows-fr">
@@ -88,9 +86,7 @@ function Home() {
           ratings={1}
         />
       </div>
-
       <Hero class={"bg-primary"} desc={"CHAPTER 40 Jewelleries"} />
-
       {/* RINGS */}
       <div className="flex justify-center mt-24 mb-12">RINGS</div>
       <div className="grid  md:grid-cols-4 gap-8 w-full px-8">
@@ -123,12 +119,10 @@ function Home() {
           ratings={1}
         />
       </div>
-
       <Hero
         class={"bg-primary"}
         desc={"Purchase now and receive it instantly"}
       />
-
       {/* WRIST-WATCHES */}
       <div className="flex justify-center mt-24 mb-12">WATCHES</div>
       <div className="grid  md:grid-cols-4 gap-8 w-full px-8">
@@ -159,15 +153,12 @@ function Home() {
           ratings={1}
         />
       </div>
-
       <div className="mt-20 flex items-center justify-center">
         <div className="w-max border-solid border-2 border-sky-500 py-[17px] px-[21px]">
           SEE WHAT OUR CUSTOMERS ARE SAYING
         </div>
       </div>
-
       {/* <Hero class={"bg-primary"} desc={"See what our customers are saying"} /> */}
-
       <div className="fixed bottom-0 w-full">
         <Footer />
       </div>

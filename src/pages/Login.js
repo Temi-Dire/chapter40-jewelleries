@@ -1,7 +1,8 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
+import { motion as m } from "framer-motion";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -35,7 +36,8 @@ function Login() {
             Please login to your account
           </h1>
           <form action="" onSubmit={login}>
-            <input
+            <m.input
+              whileFocus={{ borderColor: "black" }}
               className="w-full h-16 rounded-lg bg-[##FAFAFA] outline-none py-5 px-4 border border-[#E3E0E0] mb-10"
               type="email"
               placeholder="Email Address"
@@ -43,7 +45,8 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <input
+            <m.input
+              whileFocus={{ borderColor: "black" }}
               className="w-full h-16 rounded-lg bg-[##FAFAFA] outline-none py-5 px-4 border border-[#E3E0E0] mb-10"
               type="password"
               placeholder="Password"
@@ -51,19 +54,27 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="flex justify-center">
-              <button
-                className="bg-white w-3/5 p-2 rounded-[50px]  hover:bg-black hover:text-white"
+              <m.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white border border-black w-3/5 p-2 rounded-[50px]  hover:bg-black hover:text-white"
                 type="submit"
               >
                 Login
-              </button>
+              </m.button>
             </div>
           </form>
           <div className="text-center mt-4 ">
             <span>Don't have an account?</span>
-            <Link to={"/signup"}>
-              <span className="ml-4 font-bold">Create One</span>
-            </Link>
+            <m.button
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+              className="ml-4 font-bold"
+              onClick={() => navigate("/signup")}
+            >
+              Create One
+            </m.button>
           </div>
         </div>
       </div>
