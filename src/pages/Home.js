@@ -153,10 +153,8 @@ function Home() {
           ratings={1}
         />
       </div>
-      <div className="mt-20 flex items-center justify-center">
-        <div className="w-max border-solid border-2 border-sky-500 py-[17px] px-[21px]">
-          SEE WHAT OUR CUSTOMERS ARE SAYING
-        </div>
+      <div className="mt-20 flex items-center justify-center mb-32">
+        OUR INFO.....
       </div>
       {/* <Hero class={"bg-primary"} desc={"See what our customers are saying"} /> */}
       <div className="fixed bottom-0 w-full">
