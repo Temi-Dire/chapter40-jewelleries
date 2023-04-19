@@ -14,7 +14,7 @@ function DesktopFooter() {
     <div>
       {!user ? (
         <>
-          <div className="my-10">
+          <div className="mt-10">
               <div className="border-b border-b-slate-600" />
               <div className="flex flex-col justify-center items-center my-5">
                 <h1 className="mb-2">What are you waiting for?</h1>
