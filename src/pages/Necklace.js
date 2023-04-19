@@ -15,7 +15,7 @@ function Necklace() {
         <Header />
       </div>
       <div className="w-full bg-[purple] h-[250px]  my-8 flex items-center justify-center text-white text-2xl sm:text-lg font-['Aclonica']">
-        <p>VIEW OUR NECKLACE COLLECTION</p>
+        <p>VIEW OUR COLLECTION</p>
       </div>
       <div className="grid sm:mb-16 md:grid-cols-4 gap-8 p-8">
         {necklaces.map((item) => {

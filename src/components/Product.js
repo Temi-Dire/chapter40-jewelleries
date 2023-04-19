@@ -16,6 +16,13 @@ function Product({ id, desc, price }) {
     });
   }
 
+  function modifySentence(sentence) {
+    let newSentence;
+    newSentence = sentence.substring(0, 21) + '...';
+    return newSentence;
+  }
+
+
   return (
     <div className="w-full text-[#264143]">
       {/* <div className="w-[200px] md:w-[250px]"> */}
@@ -28,7 +35,7 @@ function Product({ id, desc, price }) {
           className="w-full max-w-[250px] h-[200px] md:h-[250px] rounded-t-lg"
         /> */}
       <div className=" flex flex-col p-2  bg-white">
-        <p>{desc}</p>
+        <p>{modifySentence(desc)}</p>
         <p>{"₦" + price}</p>
         <button
           className="bg-[#a9a4ff] rounded p-2 w-full flex-end"

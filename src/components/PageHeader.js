@@ -9,13 +9,13 @@ function PageHeader() {
   const [{ basket }, dispatch] = useStateValue();
   return (
     <div className="bg-[#dea9de] z-10 text-white flex justify-between px-4 py-4 ">
-      <Link to={"/"}>
+      <Link to={"/"} className="flex justify-center items-center">
         <div className="flex items-center">
           <FontAwesomeIcon
             className="hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
             icon={faArrowLeftLong}
           />
-          <span className="flex flex-col font-['Aclonica'] text-2xl italic  ml-4">
+          <span className="md:flex md:flex-col font-['Aclonica'] text-sm md:text-2xl italic  ml-2 mb-0">
             {/* Change the font-style of logo */}
             <span>CHAPTER40 </span>
             <span>JEWELLERY</span>
@@ -28,6 +28,7 @@ function PageHeader() {
           <div className="hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
             <ShoppingCartIcon
               // sx={{ color: deepOrange[500] }}
+              style={{fontSize: 20}}
               className="ml-2"
             />
             <span>{basket?.length}</span>

@@ -31,10 +31,10 @@ function Header() {
     <div>
       <nav className="bg-[#dea9de] z-10 text-white ">
         <div
-          className={`flex justify-between mx-4 py-2 md:mx-8 sm:flex sm:items-center`}
+          className={`flex justify-between mx-4 py-4 md:mx-8 sm:flex sm:items-center`}
         >
           <Link to={"/"}>
-            <div className="flex flex-col font-['Aclonica'] text-2xl italic  ">
+            <div className="md:flex md:flex-col font-['Aclonica'] text-sm md:text-2xl italic  ">
               {/* Change the font-style of logo */}
               <span>CHAPTER40 </span>
               <span>JEWELLERY</span>
@@ -64,7 +64,7 @@ function Header() {
               </Link>
             </div>
           </div>
-          <div className="inline flex items-center sm:hidden">
+          <div className="inline-flex items-center sm:hidden">
             <Link to={!user && "/login"}>
               <div
                 className="flex flex-col leading-loose hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"

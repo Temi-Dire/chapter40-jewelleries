@@ -6,7 +6,7 @@ import {
   faStopwatch,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { useStateValue } from "../StateProvider";
@@ -34,7 +34,7 @@ function Footer() {
     <div className=" w-full md:hidden bg-white ">
       <hr />
       <div
-        className={"flex justify-between py-4 mx-8 flex items-center text-xs "}
+        className={"flex justify-between py-4 mx-8 items-center text-xs "}
       >
         <Link to={"/earrings"}>
           <span className="flex flex-col items-center">
