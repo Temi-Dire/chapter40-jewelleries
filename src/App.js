@@ -4,8 +4,8 @@ import Necklace from "./pages/Necklace";
 import Earring from "./pages/Earring";
 import Ring from "./pages/Ring";
 import Watch from "./pages/Watch";
-import Login from "./pages/Login";
-import Signup from "./pages/SignUp";
+import Login from "./pages/auth/Login";
+import Signup from "./pages/auth/SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Payment from "./pages/Payment";
 import { auth } from "./firebase";
@@ -15,6 +15,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import Orders from "./pages/Orders";
 import Popup from "./components/Popup";
 import Oopss from "./pages/Oopss";
+import Thanks from "./pages/auth/Thanks";
 
 //USE-EFFECT IS CAUSING A PROBLEM !!!!!
 
@@ -56,6 +57,7 @@ function App() {
           <Route exact path="/orders" element={<Orders />} />
           <Route exact path="/modal" element={<Popup />} />
           <Route exact path="/oopss" element={<Oopss />} />
+          <Route exact path="/thanks" element={<Thanks />} />
         </Routes>
       </div>
     </Router>
