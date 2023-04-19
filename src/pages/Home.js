@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Product from "../components/Product";
 import Footer from "../components/Footer";
+import DesktopFooter from "../components/DesktopFooter";
 // import handImage from "../images/chain.png";
 // import "./login.css"
 
@@ -153,14 +154,14 @@ function Home() {
           ratings={1}
         />
       </div>
-      <div className="mt-20 flex items-center justify-center mb-32">
+      {/* <div className="mt-20 flex items-center justify-center mb-32">
         OUR INFO.....
-      </div>
+      </div> */}
       {/* <Hero class={"bg-primary"} desc={"See what our customers are saying"} /> */}
-      <div className="fixed bottom-0 w-full">
+      <div className="md:hidden fixed bottom-0 w-full">
         <Footer />
       </div>
-
+        <DesktopFooter />
       {/* <div>
         <Hero class={"bg-sky-500"} desc={"SHOP HOME & DECOR"} />
       </div> */}
