@@ -1,0 +1,32 @@
+import React from "react";
+import rings from "../data/rings";
+import Product from "../components/Product";
+import Footer from "../components/Footer";
+import PageHeader from "../components/PageHeader";
+import Header from "../components/Header";
+
+function Ring() {
+  return (
+    <div>
+      <div className="sticky top-0 md:hidden">
+        <PageHeader />
+      </div>
+      <div className="sticky top-0 sm:hidden">
+        <Header />
+      </div>
+      <div className="w-full bg-[purple] h-[250px]  my-8 flex items-center justify-center text-white text-2xl sm:text-lg font-['Aclonica']">
+        <p>VIEW OUR RING COLLECTION</p>
+      </div>
+      <div className="grid sm:mb-16 md:grid-cols-4 gap-8 p-8">
+        {rings.map((item) => {
+          return <Product id={item.id} desc={item.desc} price={item.price} />;
+        })}
+      </div>
+      <div className="fixed bottom-0 w-full">
+        <Footer />
+      </div>
+    </div>
+  );
+}
+
+export default Ring;
