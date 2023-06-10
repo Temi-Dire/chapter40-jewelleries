@@ -29,7 +29,7 @@ function Header() {
 
   return (
     <div>
-      <nav className="bg-[#dea9de] z-10 text-white ">
+      <nav className="bg-slate-50 z-10 text-black ">
         <div
           className={`flex justify-between mx-4 py-4 md:mx-8 sm:flex sm:items-center`}
         >
@@ -43,22 +43,22 @@ function Header() {
           <div className="sm:hidden">
             <div className="flex items-center h-full justify-between font-['Rubik'] mx-[10px] ">
               <Link to="/necklaces">
-                <span className="mr-8  block lg:inline-block  hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                <span className="mr-8  block lg:inline-block  hover: transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                   Necklaces
                 </span>
               </Link>
               <Link to="/earrings">
-                <span className="mr-8 block lg:inline-block  hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                <span className="mr-8 block lg:inline-block  hover: transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                   Earrings
                 </span>
               </Link>
               <Link to="/rings">
-                <span className="mr-8 block lg:inline-block  hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                <span className="mr-8 block lg:inline-block  hover: transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                   Rings
                 </span>
               </Link>
               <Link to="/watches">
-                <span className="block lg:inline-block hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                <span className="block lg:inline-block hover: transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                   Watches
                 </span>
               </Link>
@@ -67,7 +67,7 @@ function Header() {
           <div className="inline-flex items-center sm:hidden">
             <Link to={!user && "/login"}>
               <div
-                className="flex flex-col leading-loose hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                className="flex flex-col leading-loose hover: transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                 onClick={handleAuthentication}
               >
                 <span className="mr-8 text-[13px] font-['Rubik']">
@@ -79,7 +79,7 @@ function Header() {
               </div>
             </Link>
             <Link to={user ? "/orders" : "/oopss"}>
-              <div className="flex flex-col leading-loose hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+              <div className="flex flex-col leading-loose hover: transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                 <span className="text-[10px]">Returns</span>
                 <span className="mr-8 text-[13px] font-['Rubik']">
                   & Orders
@@ -87,7 +87,7 @@ function Header() {
               </div>
             </Link>
             <Link to={"/checkout"}>
-              <div className="hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+              <div className="hover: transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                 <ShoppingCartIcon
                   // sx={{ color: deepOrange[500] }}
                   className="ml-2"
@@ -98,7 +98,7 @@ function Header() {
           </div>
           <div className="md:hidden">
             <Link to={"/checkout"}>
-              <div className="hover:text-purple-800 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+              <div className="hover: transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                 <ShoppingCartIcon
                   // sx={{ color: deepOrange[500] }}
                   className="ml-2"
@@ -108,6 +108,7 @@ function Header() {
             </Link>
           </div>
         </div>
+        {/* <div className="h-[0.5px] bg-black"/> */}
       </nav>
       {signoutsuccessful && (
         <Popup

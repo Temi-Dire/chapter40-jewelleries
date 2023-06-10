@@ -15,7 +15,7 @@ function Home() {
       </div>
 
       <div>
-        <Hero class={"bg-primary"} desc={"WELCOME TO CHAPTER40 JEWELLERY"} />
+        <Hero class={"bg-red-100"} desc={"WELCOME TO CHAPTER40 JEWELLERY"} />
       </div>
       <div className="my-20 flex items-center justify-center">
         <div className="w-max border-solid border-2 border-primary py-[17px] px-[21px] ">
@@ -54,7 +54,7 @@ function Home() {
           ratings={1}
         />
       </div>
-      <Hero class={"bg-primary"} desc={"We sell only quality products"} />
+      <Hero class={"bg-red-100"} desc={"We sell only quality products"} />
       {/* EARRINGS */}
       <div className="flex justify-center mt-24 mb-12">EARRINGS</div>
       <div className="grid  md:grid-cols-4 gap-8 w-full px-8 auto-rows-fr">
@@ -87,7 +87,7 @@ function Home() {
           ratings={1}
         />
       </div>
-      <Hero class={"bg-primary"} desc={"CHAPTER 40 Jewelleries"} />
+      <Hero class={"bg-red-100"} desc={"CHAPTER 40 Jewelleries"} />
       {/* RINGS */}
       <div className="flex justify-center mt-24 mb-12">RINGS</div>
       <div className="grid  md:grid-cols-4 gap-8 w-full px-8">
@@ -121,7 +121,7 @@ function Home() {
         />
       </div>
       <Hero
-        class={"bg-primary"}
+        class={"bg-red-100"}
         desc={"Purchase now and receive it instantly"}
       />
       {/* WRIST-WATCHES */}
